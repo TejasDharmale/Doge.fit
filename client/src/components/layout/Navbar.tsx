@@ -28,7 +28,11 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/">
           <a className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity pr-1">
-            <img src={logoImg} alt="DODGE.FIT" className="h-10 w-auto" />
+            <img 
+              src={logoImg} 
+              alt="DODGE.FIT" 
+              className="h-10 w-auto mix-blend-screen invert grayscale contrast-200" 
+            />
             <span className="text-2xl font-heading font-bold italic tracking-tight text-white">
               DODGE<span className="text-primary">.FIT</span>
             </span>

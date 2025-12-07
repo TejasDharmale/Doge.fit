@@ -1,6 +1,13 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
+  const socialLinks = [
+    { icon: Instagram, href: "https://www.instagram.com/dodge.fitindia/" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/dodge-fit/" },
+    { icon: Twitter, href: "#" },
+    { icon: Facebook, href: "#" },
+  ];
+
   return (
     <footer className="bg-black border-t border-white/10 pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -14,13 +21,15 @@ export function Footer() {
               Elevating your fitness journey with premium gear, community events, and cutting-edge technology.
             </p>
             <div className="flex space-x-4 pt-2">
-              {[Instagram, Linkedin, Twitter, Facebook].map((Icon, i) => (
+              {socialLinks.map((social, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={social.href}
+                  target={social.href !== "#" ? "_blank" : undefined}
+                  rel={social.href !== "#" ? "noopener noreferrer" : undefined}
                   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-primary hover:text-black hover:border-primary transition-all duration-300"
                 >
-                  <Icon className="w-4 h-4" />
+                  <social.icon className="w-4 h-4" />
                 </a>
               ))}
             </div>

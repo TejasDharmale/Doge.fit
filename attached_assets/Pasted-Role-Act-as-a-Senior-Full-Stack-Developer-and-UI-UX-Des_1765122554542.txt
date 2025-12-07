@@ -1,0 +1,87 @@
+Role: Act as a Senior Full Stack Developer and UI/UX Designer.
+
+Project Goal: Recreate the website https://www.dodgefitgear.com/ as a modern, high-performance e-commerce and community platform. The site acts as a hub for fitness gear (activewear, gym accessories), a promotional landing page for a fitness management app, and a community club portal.
+
+Tech Stack:
+
+Frontend: React (Next.js 14+ with App Router), TypeScript, Tailwind CSS.
+
+Backend: Python (FastAPI), Pydantic for data validation.
+
+Database: SQLite (for development) or PostgreSQL, using SQLAlchemy or Prisma.
+
+State Management: Zustand or React Context.
+
+Styling: Tailwind CSS for responsive design; use Framer Motion for smooth, "sporty" entrance animations.
+
+1. Design & Aesthetic (UI/UX)
+Theme: "Dark Mode" Sport/Fitness aesthetic. Use a dark background (Jet Black/Charcoal) with high-contrast Neon accents (Volt Green or Electric Blue) to match the "Dodge.Fit" branding.
+
+Typography: Bold, sans-serif fonts (like Inter or Oswald) for headers to scream "Energy" and "Resilience". Clean readable sans-serif for body text.
+
+Mobile-First: The site must be fully responsive. Ensure the navigation turns into a hamburger menu on mobile and product grids stack vertically.
+
+Vibe: Energetic, premium, and community-focused.
+
+2. Frontend Requirements (Next.js)
+Create the following key sections and pages based on the reference site:
+
+Navigation Bar: Sticky header with Logo, Links (Shop, Offers, Contact, Book Online), and Social Icons (LinkedIn, Instagram).
+
+Hero Section: A dynamic banner with a background image of fitness activities/gym settings. Headline: "WELCOME TO DODGE.FIT - Elevate your fitness journey". Include a CTA button ("Shop Now").
+
+Value Proposition (Why Choose Us): A 3-column grid highlighting:
+
+"Center Management" (App features).
+
+"Unbeatable Quality & Price".
+
+"Early Bird Discounts".
+
+Featured Collections (E-commerce): A product grid displaying items like "Transformer Tshirt", "Bottles", and "Knitted Golf Sweaters".
+
+Feature: specific "Sale" badges and "Quick View" hover effects.
+
+Services Breakdown: Distinct sections for:
+
+Gear: Selling gym accessories.
+
+App: Promoting the gym management software for coaches/owners.
+
+Community: highlighting weekend runs, treks, and outdoor workouts.
+
+Lead Generation Form: A "Get Free Trial App Service" form collecting First Name, Last Name, and Email.
+
+Footer: Newsletter subscription field, contact email (dodgedotfit@gmail.com), and quick links.
+
+3. Backend Requirements (FastAPI)
+Build a robust API to handle the data:
+
+Endpoints:
+
+GET /products: Fetch all products with filtering (Category: Hats, Jerseys, Soccer Balls).
+
+GET /products/{id}: Product detail view.
+
+POST /leads: endpoint to receive the "Free Trial" form submissions.
+
+POST /newsletter: Endpoint for email subscriptions.
+
+Models (Pydantic):
+
+Product: id, name, price, sale_price, image_url, category, is_featured.
+
+Lead: first_name, last_name, email.
+
+4. Deliverables
+Please provide:
+
+The project file structure.
+
+The fastapi main.py code.
+
+The Next.js page components (Home, Navbar, ProductGrid).
+
+Tailwind configuration for the custom color palette.
+
+Instructions on how to run both servers locally.

@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import logoImg from "@assets/image_1765123510416.png";
 
 export function Footer() {
   const socialLinks = [
@@ -14,9 +15,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-heading font-bold italic text-white">
-              DODGE<span className="text-primary">.FIT</span>
-            </h2>
+            <div className="flex items-center gap-2">
+                <img src={logoImg} alt="DODGE.FIT" className="h-10 w-auto" />
+                <h2 className="text-3xl font-heading font-bold italic text-white">
+                DODGE<span className="text-primary">.FIT</span>
+                </h2>
+            </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Elevating your fitness journey with premium gear, community events, and cutting-edge technology.
             </p>

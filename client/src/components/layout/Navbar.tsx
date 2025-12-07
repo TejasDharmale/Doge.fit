@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import logoImg from "@assets/image_1765123510416.png";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,8 +21,11 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-heading font-bold italic tracking-tight text-white cursor-pointer hover:text-primary transition-colors pr-1">
-            DODGE<span className="text-primary">.FIT</span>
+        <Link href="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity pr-1">
+            <img src={logoImg} alt="DODGE.FIT" className="h-10 w-auto" />
+            <span className="text-2xl font-heading font-bold italic tracking-tight text-white">
+              DODGE<span className="text-primary">.FIT</span>
+            </span>
         </Link>
 
         {/* Desktop Links */}

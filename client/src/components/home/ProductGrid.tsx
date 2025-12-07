@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Eye, ShoppingCart } from "lucide-react";
+import { useCartStore } from "@/lib/store";
+import { useToast } from "@/hooks/use-toast";
 import transformerImg from "@assets/image_1765122862294.png";
 import gearTshirtImg from "@assets/image_1765122866730.png";
 import tshirtImg from "@assets/image_1765122870187.png";
@@ -41,6 +43,17 @@ const products = [
 ];
 
 export function ProductGrid() {
+  const { addItem } = useCartStore();
+  const { toast } = useToast();
+
+  const handleAddToCart = (product: any) => {
+    addItem(product);
+    toast({
+        title: "Added to Cart",
+        description: `${product.name} has been added to your cart.`,
+    });
+  };
+
   return (
     <section id="shop" className="py-24 bg-zinc-950">
       <div className="container mx-auto px-4">
@@ -84,7 +97,7 @@ export function ProductGrid() {
 
                 {/* Hover Actions */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 z-20">
-                  <Button size="icon" className="bg-white text-black hover:bg-primary">
+                  <Button size="icon" onClick={() => handleAddToCart(product)} className="bg-white text-black hover:bg-primary">
                     <ShoppingCart className="w-4 h-4" />
                   </Button>
                   <Button size="icon" variant="outline" className="border-white text-white hover:bg-white hover:text-black">

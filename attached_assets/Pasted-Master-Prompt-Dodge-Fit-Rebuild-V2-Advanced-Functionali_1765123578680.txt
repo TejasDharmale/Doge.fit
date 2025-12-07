@@ -1,0 +1,97 @@
+Master Prompt: Dodge.Fit Rebuild (V2 - Advanced Functionality)
+Role: Act as a Senior Full Stack Developer and UI/UX Designer.
+
+Project Goal: Build a fully functional e-commerce and community platform for Dodge.Fit (replicating the vibe of dodgefitgear.com). The site must be production-ready, mobile-responsive, and feature a secure checkout flow.
+
+Tech Stack:
+
+Frontend: Next.js 14+ (App Router), TypeScript, Tailwind CSS, Lucide React (icons).
+
+State Management: Zustand (for global Cart and Auth state).
+
+Backend: Python (FastAPI).
+
+Database: PostgreSQL or SQLite (using SQLAlchemy).
+
+Authentication: JWT (JSON Web Tokens) or NextAuth.js.
+
+1. Critical Functional Requirements
+A. Authentication & Protection
+
+Mandatory Sign-In: Users can browse products, but they must sign in or sign up before they can proceed to Checkout.
+
+Implement a Protected Route for the Checkout page. If a guest tries to checkout, redirect them to a styled Login/Register modal or page.
+
+B. Cart & Checkout System
+
+Cart Functionality: Users can add items to the cart, adjust quantities, and remove items. This state must persist (using local storage or database).
+
+Coupon Logic: On the checkout page, include a "Have a discount code?" input field.
+
+Frontend: Validates the code via API.
+
+Backend: Logic to calculate the new total if the coupon is valid (e.g., SUMMER25 gives 25% off).
+
+2. Site Structure & Navigation
+Create a comprehensive routing structure. All the following links must work (create placeholder components if content is missing, but the routes must exist):
+
+Main Navigation (Header): Home, Shop, App, Community, Login/Profile.
+
+Footer Structure (Categorized):
+
+Explore:
+
+/shop-gear (Shop Gear)
+
+/about (Our Story)
+
+/community (Community)
+
+/app-features (App Features)
+
+/blog (Blog)
+
+Support:
+
+/faq (FAQ)
+
+/shipping-returns (Shipping & Returns)
+
+/size-guide (Size Guide)
+
+/contact (Contact Us)
+
+/privacy (Privacy Policy)
+
+3. Backend API (FastAPI) Requirements
+Develop the following endpoints in main.py:
+
+Auth: POST /register, POST /login (return JWT token).
+
+Products: GET /products (list all), GET /products/{id}.
+
+Cart/Orders: POST /checkout (receives cart items + user ID).
+
+Coupons: POST /verify-coupon (Input: code; Output: discount_percentage or invalid error).
+
+4. Design Guidelines (UI/UX)
+Visual Style: Dark Mode (Charcoal/Black background) with Neon Green/Electric Blue accents.
+
+Responsiveness: Mobile-first. The footer links provided above should be organized in a collapsible accordion or a clean grid on mobile screens.
+
+Feedback: Use toast notifications (e.g., "Item added to cart", "Coupon Applied Successfully", "Please Login to Continue").
+
+5. Deliverables
+Project Structure: Folder tree for Next.js and FastAPI.
+
+FastAPI Code: Complete main.py with the Auth, Product, and Coupon logic.
+
+Frontend Code:
+
+CartProvider (Zustand store).
+
+CheckoutPage (with the coupon input and login check).
+
+Footer component (with the specific links requested).
+
+Instructions: How to run the backend and frontend simultaneously.

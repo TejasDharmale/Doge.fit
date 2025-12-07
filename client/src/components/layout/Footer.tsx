@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import logoImg from "@assets/image_1765123510416.png";
+import { Link } from "wouter";
 
 export function Footer() {
   const socialLinks = [
@@ -43,11 +44,19 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-heading font-bold text-white mb-6 uppercase tracking-wider">Explore</h3>
             <ul className="space-y-3">
-              {["Shop Gear", "Our Story", "Community", "App Features", "Blog"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                    {item}
-                  </a>
+              {[
+                { label: "Shop Gear", href: "/shop-gear" },
+                { label: "Our Story", href: "/about" },
+                { label: "Community", href: "/community" },
+                { label: "App Features", href: "/app-features" },
+                { label: "Blog", href: "/blog" }
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href}>
+                    <a className="text-gray-400 hover:text-primary transition-colors text-sm">
+                        {item.label}
+                    </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -57,11 +66,19 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-heading font-bold text-white mb-6 uppercase tracking-wider">Support</h3>
             <ul className="space-y-3">
-              {["FAQ", "Shipping & Returns", "Size Guide", "Contact Us", "Privacy Policy"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">
-                    {item}
-                  </a>
+              {[
+                  { label: "FAQ", href: "/faq" },
+                  { label: "Shipping & Returns", href: "/shipping-returns" },
+                  { label: "Size Guide", href: "/size-guide" },
+                  { label: "Contact Us", href: "/contact" },
+                  { label: "Privacy Policy", href: "/privacy" }
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href}>
+                    <a className="text-gray-400 hover:text-primary transition-colors text-sm">
+                        {item.label}
+                    </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -81,9 +98,9 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
           <p>&copy; {new Date().getFullYear()} Dodge.Fit. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Cookies</a>
+            <Link href="/privacy"><a className="hover:text-white transition-colors">Terms</a></Link>
+            <Link href="/privacy"><a className="hover:text-white transition-colors">Privacy</a></Link>
+            <Link href="/privacy"><a className="hover:text-white transition-colors">Cookies</a></Link>
           </div>
         </div>
       </div>

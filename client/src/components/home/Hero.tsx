@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Link } from "wouter";
 import heroBg from "@assets/generated_images/dark_moody_fitness_hero_background_with_neon_accents.png";
 
 export function Hero() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center">
       {/* Background Image with Overlay */}
@@ -46,17 +52,23 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link href="/shop-gear">
-              <Button size="lg" className="bg-primary text-black hover:bg-primary/90 text-lg px-8 font-heading font-bold uppercase tracking-wide cursor-pointer">
+            <Button 
+                size="lg" 
+                onClick={() => scrollToSection('shop')}
+                className="bg-primary text-black hover:bg-primary/90 text-lg px-8 font-heading font-bold uppercase tracking-wide cursor-pointer"
+            >
                 Shop Now
-              </Button>
-            </Link>
-            <Link href="/auth">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black text-lg px-8 font-heading font-bold uppercase tracking-wide group cursor-pointer">
+            </Button>
+            
+            <Button 
+                size="lg" 
+                variant="outline" 
+                onClick={() => scrollToSection('transformation')}
+                className="border-white text-white hover:bg-white hover:text-black text-lg px-8 font-heading font-bold uppercase tracking-wide group cursor-pointer"
+            >
                 Join the Club
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+            </Button>
           </motion.div>
         </div>
       </div>

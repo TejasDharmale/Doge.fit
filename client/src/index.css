@@ -48,6 +48,9 @@
   --secondary: 190 100% 50%; /* Electric Blue #00FFFF */
   --secondary-foreground: 0 0% 9%;
   
+  /* Brand Purple from Logo */
+  --brand-purple: 270 100% 60%;
+  
   --muted: 0 0% 15%;
   --muted-foreground: 0 0% 60%;
   

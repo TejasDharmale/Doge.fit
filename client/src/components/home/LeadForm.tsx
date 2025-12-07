@@ -33,7 +33,7 @@ export function LeadForm() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-primary relative overflow-hidden">
+    <section id="transformation" className="py-24 bg-primary relative overflow-hidden">
       {/* Abstract Background Pattern */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]" />
       

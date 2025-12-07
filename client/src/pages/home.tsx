@@ -5,6 +5,7 @@ import { ValueProps } from "@/components/home/ValueProps";
 import { ProductGrid } from "@/components/home/ProductGrid";
 import { Services } from "@/components/home/Services";
 import { LeadForm } from "@/components/home/LeadForm";
+import { Reviews } from "@/components/home/Reviews";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <ValueProps />
         <ProductGrid />
         <Services />
+        <Reviews />
         <LeadForm />
       </main>
       <Footer />

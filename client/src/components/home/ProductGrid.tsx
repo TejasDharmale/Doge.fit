@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Eye, ShoppingCart } from "lucide-react";
 import { useCartStore } from "@/lib/store";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "wouter";
 import transformerImg from "@assets/image_1765122862294.png";
 import gearTshirtImg from "@assets/image_1765122866730.png";
 import tshirtImg from "@assets/image_1765122870187.png";
@@ -64,9 +65,11 @@ export function ProductGrid() {
             </h2>
             <p className="text-gray-400">High performance equipment for the modern athlete.</p>
           </div>
-          <Button variant="link" className="text-primary hover:text-white hidden md:flex">
-            View All Products
-          </Button>
+          <Link href="/products">
+            <Button variant="link" className="text-primary hover:text-white hidden md:flex cursor-pointer">
+                View All Products
+            </Button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -121,7 +124,9 @@ export function ProductGrid() {
         </div>
         
         <div className="mt-8 text-center md:hidden">
-          <Button variant="outline" className="w-full border-zinc-800 text-white">View All Products</Button>
+            <Link href="/products">
+                <Button variant="outline" className="w-full border-zinc-800 text-white cursor-pointer">View All Products</Button>
+            </Link>
         </div>
       </div>
     </section>

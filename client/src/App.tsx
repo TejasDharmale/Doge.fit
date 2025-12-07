@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import AuthPage from "@/pages/auth";
 import CheckoutPage from "@/pages/checkout";
+import ProductsPage from "@/pages/products";
 import PlaceholderPage from "@/pages/placeholder";
 import NotFound from "@/pages/not-found";
 
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/auth" component={AuthPage} />
       <Route path="/checkout" component={CheckoutPage} />
+      <Route path="/products" component={ProductsPage} />
       
       {/* Placeholder Pages */}
       <Route path="/shop-gear"><PlaceholderPage title="Shop Gear" /></Route>

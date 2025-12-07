@@ -1,10 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Eye, ShoppingCart } from "lucide-react";
 import { useCartStore } from "@/lib/store";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "wouter";
+import { useState } from "react";
+import { Product3DViewer } from "@/components/ui/3d-viewer";
 import transformerImg from "@assets/image_1765122862294.png";
 import gearTshirtImg from "@assets/image_1765122866730.png";
 import tshirtImg from "@assets/image_1765122870187.png";
@@ -46,6 +48,8 @@ const products = [
 export function ProductGrid() {
   const { addItem } = useCartStore();
   const { toast } = useToast();
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
 
   const handleAddToCart = (product: any) => {
     addItem(product);
@@ -55,8 +59,19 @@ export function ProductGrid() {
     });
   };
 
+  const handleOpen3D = (product: any) => {
+    setSelectedProduct(product);
+    setViewerOpen(true);
+  };
+
   return (
     <section id="shop" className="py-24 bg-zinc-950">
+      <Product3DViewer 
+        isOpen={viewerOpen} 
+        onClose={() => setViewerOpen(false)} 
+        product={selectedProduct} 
+      />
+
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-end mb-12">
           <div>
@@ -76,18 +91,22 @@ export function ProductGrid() {
           {products.map((product) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
               className="group relative"
             >
               {/* Image Container */}
-              <div className="relative aspect-[3/4] bg-zinc-900 overflow-hidden mb-4 rounded-sm border border-white/5">
+              <div className="relative aspect-[3/4] bg-zinc-900 overflow-hidden mb-4 rounded-sm border border-white/5 transition-colors group-hover:border-primary/50">
                 <div className="absolute inset-0 p-4 flex items-center justify-center">
-                    <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                    <motion.img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-contain"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
                     />
                 </div>
                 
@@ -100,12 +119,35 @@ export function ProductGrid() {
 
                 {/* Hover Actions */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 z-20">
-                  <Button size="icon" onClick={() => handleAddToCart(product)} className="bg-white text-black hover:bg-primary">
-                    <ShoppingCart className="w-4 h-4" />
-                  </Button>
-                  <Button size="icon" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
-                    <Eye className="w-4 h-4" />
-                  </Button>
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <Button 
+                        size="icon" 
+                        onClick={() => handleAddToCart(product)} 
+                        className="bg-white text-black hover:bg-primary transition-colors shadow-lg"
+                    >
+                        <ShoppingCart className="w-4 h-4" />
+                    </Button>
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <Button 
+                        size="icon" 
+                        variant="outline" 
+                        onClick={() => handleOpen3D(product)}
+                        className="border-white text-white hover:bg-white hover:text-black transition-colors shadow-lg relative overflow-hidden"
+                    >
+                        <Eye className="w-4 h-4 relative z-10" />
+                        <div className="absolute inset-0 bg-primary/20 animate-pulse" />
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
 

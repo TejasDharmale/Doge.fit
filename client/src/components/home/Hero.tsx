@@ -22,10 +22,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-heading font-bold text-white uppercase italic leading-none mb-6"
+            className="text-5xl md:text-7xl font-heading font-bold text-white uppercase italic leading-none mb-6 pr-4"
           >
             Welcome to <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary pr-2 inline-block">
               DODGE.FIT
             </span>
           </motion.h1>

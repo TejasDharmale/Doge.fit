@@ -20,7 +20,7 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-heading font-bold italic tracking-tighter text-white cursor-pointer hover:text-primary transition-colors">
+        <Link href="/" className="text-2xl font-heading font-bold italic tracking-tight text-white cursor-pointer hover:text-primary transition-colors pr-1">
             DODGE<span className="text-primary">.FIT</span>
         </Link>
 

@@ -2,38 +2,41 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Eye, ShoppingCart } from "lucide-react";
+import transformerImg from "@assets/image_1765122862294.png";
+import gearTshirtImg from "@assets/image_1765122866730.png";
+import tshirtImg from "@assets/image_1765122870187.png";
+import bottleImg from "@assets/image_1765122910978.png";
 
 const products = [
   {
     id: 1,
-    name: "Transformer T-Shirt",
-    price: 45.00,
-    salePrice: 35.00,
+    name: "DodgeFit Transformer Tshirt",
+    price: 1299.00,
     category: "Apparel",
-    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&q=80&w=800",
+    image: transformerImg,
     isNew: true,
   },
   {
     id: 2,
-    name: "Hydro Flask Pro",
-    price: 25.00,
-    category: "Accessories",
-    image: "https://images.unsplash.com/photo-1602143407151-011141959301?auto=format&fit=crop&q=80&w=800",
+    name: "DodgeFit Gear Tshirt",
+    price: 999.00,
+    category: "Apparel",
+    image: gearTshirtImg,
+    isNew: true,
   },
   {
     id: 3,
-    name: "Knitted Golf Sweater",
-    price: 89.00,
+    name: "DodgeFit Tshirt",
+    price: 699.00,
     category: "Apparel",
-    image: "https://images.unsplash.com/photo-1620799140408-ed5341cd2431?auto=format&fit=crop&q=80&w=800",
+    image: tshirtImg,
   },
   {
     id: 4,
-    name: "Performance Cap",
-    price: 30.00,
-    category: "Headwear",
-    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&q=80&w=800",
-    isSale: true,
+    name: "DodgeFit Shaker Bottle",
+    price: 600.00,
+    category: "Accessories",
+    image: bottleImg,
   },
 ];
 
@@ -63,28 +66,24 @@ export function ProductGrid() {
               className="group relative"
             >
               {/* Image Container */}
-              <div className="relative aspect-[3/4] bg-zinc-900 overflow-hidden mb-4">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
-                />
+              <div className="relative aspect-[3/4] bg-zinc-900 overflow-hidden mb-4 rounded-sm border border-white/5">
+                <div className="absolute inset-0 p-4 flex items-center justify-center">
+                    <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                    />
+                </div>
                 
                 {/* Badges */}
-                <div className="absolute top-2 left-2 flex flex-col gap-2">
+                <div className="absolute top-2 left-2 flex flex-col gap-2 z-10">
                   {product.isNew && (
-                    <Badge className="bg-secondary text-black font-bold rounded-none uppercase text-xs">New Arrival</Badge>
-                  )}
-                  {product.isSale && (
-                    <Badge className="bg-primary text-black font-bold rounded-none uppercase text-xs">Sale</Badge>
-                  )}
-                  {product.salePrice && (
-                    <Badge className="bg-red-500 text-white font-bold rounded-none uppercase text-xs">Save 20%</Badge>
+                    <Badge className="bg-secondary text-black font-bold rounded-none uppercase text-xs">New</Badge>
                   )}
                 </div>
 
                 {/* Hover Actions */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 z-20">
                   <Button size="icon" className="bg-white text-black hover:bg-primary">
                     <ShoppingCart className="w-4 h-4" />
                   </Button>
@@ -101,14 +100,7 @@ export function ProductGrid() {
                   {product.name}
                 </h3>
                 <div className="flex items-center gap-2">
-                  {product.salePrice ? (
-                    <>
-                      <span className="text-primary font-mono font-bold">${product.salePrice.toFixed(2)}</span>
-                      <span className="text-gray-600 font-mono line-through text-sm">${product.price.toFixed(2)}</span>
-                    </>
-                  ) : (
-                    <span className="text-white font-mono font-bold">${product.price.toFixed(2)}</span>
-                  )}
+                    <span className="text-primary font-mono font-bold">₹{product.price.toFixed(2)}</span>
                 </div>
               </div>
             </motion.div>
